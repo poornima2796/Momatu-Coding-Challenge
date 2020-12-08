@@ -11,11 +11,11 @@ class PicsumDataSourceFactory(
     private val networkService: NetworkService
 ) : DataSource.Factory<Int, Photo>() {
 
-    val newsDataSourceLiveData = MutableLiveData<PicsumDataSource>()
+    val DataSourceLiveData = MutableLiveData<PicsumDataSource>()
 
     override fun create(): DataSource<Int, Photo> {
-        val newsDataSource = PicsumDataSource(networkService, compositeDisposable)
-        newsDataSourceLiveData.postValue(newsDataSource)
-        return newsDataSource
+        val picDataSource = PicsumDataSource(networkService, compositeDisposable)
+        DataSourceLiveData.postValue(picDataSource)
+        return picDataSource
     }
 }

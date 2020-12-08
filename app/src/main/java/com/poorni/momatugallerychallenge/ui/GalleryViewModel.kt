@@ -15,32 +15,31 @@ import io.reactivex.disposables.CompositeDisposable
 class GalleryViewModel : ViewModel() {
 
     private val networkService = NetworkService.getService()
-    var newsList: LiveData<PagedList<Photo>>
+    var dataList: LiveData<PagedList<Photo>>
     private val compositeDisposable = CompositeDisposable()
     private val pageSize = 5
-    private val newsDataSourceFactory: PicsumDataSourceFactory
-    private val gridSize = 2
+    private val picDataSourceFactory: PicsumDataSourceFactory
 
     init {
-        newsDataSourceFactory = PicsumDataSourceFactory(compositeDisposable, networkService)
+        picDataSourceFactory = PicsumDataSourceFactory(compositeDisposable, networkService)
         val config = PagedList.Config.Builder()
             .setPageSize(pageSize)
             .setInitialLoadSizeHint(pageSize * 2)
             .setEnablePlaceholders(false)
             .build()
-        newsList = LivePagedListBuilder<Int, Photo>(newsDataSourceFactory, config).build()
+        dataList = LivePagedListBuilder<Int, Photo>(picDataSourceFactory, config).build()
     }
 
 
     fun getState(): LiveData<State> = Transformations.switchMap<PicsumDataSource,
-            State>(newsDataSourceFactory.newsDataSourceLiveData, PicsumDataSource::state)
+            State>(picDataSourceFactory.DataSourceLiveData, PicsumDataSource::state)
 
     fun retry() {
-        newsDataSourceFactory.newsDataSourceLiveData.value?.retry()
+        picDataSourceFactory.DataSourceLiveData.value?.retry()
     }
 
     fun listIsEmpty(): Boolean {
-        return newsList.value?.isEmpty() ?: true
+        return dataList.value?.isEmpty() ?: true
     }
 
     override fun onCleared() {

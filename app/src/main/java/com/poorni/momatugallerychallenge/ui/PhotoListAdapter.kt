@@ -18,7 +18,7 @@ class PhotoListAdapter(private val retry: () -> Unit) :
     private var state = LOADING
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return if (viewType == DATA_VIEW_TYPE) NewsViewHolder.create(parent) else ListFooterViewHolder.create(
+        return if (viewType == DATA_VIEW_TYPE) PhotoViewHolder.create(parent) else ListFooterViewHolder.create(
             retry,
             parent
         )
@@ -26,7 +26,7 @@ class PhotoListAdapter(private val retry: () -> Unit) :
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (getItemViewType(position) == DATA_VIEW_TYPE)
-            (holder as NewsViewHolder).bind(getItem(position))
+            (holder as PhotoViewHolder).bind(getItem(position))
         else (holder as ListFooterViewHolder).bind(state)
     }
 

@@ -11,7 +11,7 @@ import com.squareup.picasso.NetworkPolicy
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.photo_item.view.*
 
-class NewsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+class PhotoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     fun bind(news: Photo?) {
         if (news != null) {
@@ -26,10 +26,10 @@ class NewsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     }
 
     companion object {
-        fun create(parent: ViewGroup): NewsViewHolder {
+        fun create(parent: ViewGroup): PhotoViewHolder {
             val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.photo_item, parent, false)
-            return NewsViewHolder(view)
+            return PhotoViewHolder(view)
         }
     }
 }
