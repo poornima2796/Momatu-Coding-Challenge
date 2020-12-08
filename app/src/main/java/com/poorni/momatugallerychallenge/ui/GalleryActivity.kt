@@ -21,7 +21,7 @@ class GalleryActivity : AppCompatActivity() {
 
 
     private lateinit var viewModel: GalleryViewModel
-    private lateinit var newsListAdapter: PhotoListAdapter
+    private lateinit var dataListAdapter: PhotoListAdapter
     var isRotate = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -73,13 +73,13 @@ class GalleryActivity : AppCompatActivity() {
     }
 
     private fun initAdapter() {
-        newsListAdapter = PhotoListAdapter { viewModel.retry() }
+        dataListAdapter = PhotoListAdapter { viewModel.retry() }
         recycler_view.layoutManager =
             StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-        recycler_view.adapter = newsListAdapter
-        viewModel.newsList.observe(this,
+        recycler_view.adapter = dataListAdapter
+        viewModel.dataList.observe(this,
             Observer {
-                newsListAdapter.submitList(it)
+                dataListAdapter.submitList(it)
             })
     }
 
@@ -94,7 +94,7 @@ class GalleryActivity : AppCompatActivity() {
             txt_error.visibility =
                 if (viewModel.listIsEmpty() && state == State.ERROR) VISIBLE else GONE
             if (!viewModel.listIsEmpty()) {
-                newsListAdapter.setState(state ?: State.DONE)
+                dataListAdapter.setState(state ?: State.DONE)
             }
         })
     }
