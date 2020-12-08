@@ -19,6 +19,7 @@ class GalleryViewModel : ViewModel() {
     private val compositeDisposable = CompositeDisposable()
     private val pageSize = 5
     private val newsDataSourceFactory: PicsumDataSourceFactory
+    private val gridSize = 2
 
     init {
         newsDataSourceFactory = PicsumDataSourceFactory(compositeDisposable, networkService)

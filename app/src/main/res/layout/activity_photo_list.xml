@@ -25,4 +25,63 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/photo_item" />
 
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="341dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="48dp"
+        android:clickable="true"
+        android:tint="#c3a3cc"
+        app:backgroundTint="#c3a3cc"
+        app:srcCompat="@drawable/grid" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="115dp"
+        android:src="@drawable/one"
+        android:tint="#c3a3cc"
+        app:backgroundTint="#c3a3cc"
+        app:fabSize="mini"
+        app:rippleColor="@color/white" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="170dp"
+        android:src="@drawable/two"
+        android:tint="#c3a3cc"
+        app:backgroundTint="#c3a3cc"
+        app:fabSize="mini"
+        app:rippleColor="@color/white" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_three"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="225dp"
+        app:backgroundTint="#c3a3cc"
+        android:src="@drawable/three"
+        android:tint="#c3a3cc"
+        app:fabSize="mini"
+        app:rippleColor="@color/white" />
+
 </RelativeLayout>
