@@ -20,7 +20,6 @@ class NewsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
                 .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
                 .networkPolicy(NetworkPolicy.NO_CACHE)
                 .resize(200, 200)
-                .placeholder(R.drawable.progress_animation)
                 .into(itemView.img)
 
         }
